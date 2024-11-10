@@ -1,0 +1,19 @@
+blockchain:
+  api_key: "YOUR_BLOCKCHAIN_API_KEY"
+
+opensea:
+  api_key: "YOUR_OPENSEA_API_KEY"
+
+rarity:
+  api_key: "YOUR_RARITY_API_KEY"
+
+etherscan:
+  api_key: "YOUR_ETHERSCAN_API_KEY"
+
+openai:
+  api_key: "YOUR_OPENAI_API_KEY"
+
+smtp:
+  username: "smtp_user"
+  password: "smtp_password"
+  from_email: "no-reply@nftadvisor.com"

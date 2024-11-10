@@ -1,0 +1,47 @@
+server:
+  host: "0.0.0.0"
+  port: 5000
+
+logging:
+  name: "nft_valuation_advisor"
+  level: "DEBUG"
+  file: "logs/app.log"
+
+database:
+  type: "postgresql"
+  host: "localhost"
+  port: 5432
+  username: "user"
+  password: "password"
+  dbname: "nft_valuation"
+
+api:
+  blockchain:
+    api_url: "https://blockchain.example.com/api"
+    api_key: "YOUR_BLOCKCHAIN_API_KEY"
+  external:
+    opensea:
+      api_url: "https://api.opensea.io/api/v1"
+      api_key: "YOUR_OPENSEA_API_KEY"
+    rarity:
+      api_url: "https://rarity.example.com/api"
+      api_key: "YOUR_RARITY_API_KEY"
+
+model:
+  type: "RandomForest"
+  parameters:
+    n_estimators: 100
+    max_depth: 10
+    random_state: 42
+
+cache:
+  type: "redis"
+  host: "localhost"
+  port: 6379
+  db: 0
+
+llm:
+  provider: "OpenAI"
+  api_key: "YOUR_OPENAI_API_KEY"
+  model: "gpt-4"
+  temperature: 0.7
