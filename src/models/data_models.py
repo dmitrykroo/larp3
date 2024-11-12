@@ -45,3 +45,13 @@ class Report:
     generated_at: str
     valuations: List[Valuation]
     insights: Optional[str] = None
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
