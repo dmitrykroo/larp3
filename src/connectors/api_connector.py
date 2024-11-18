@@ -77,3 +77,5 @@ class APIConnector:
         except requests.RequestException as e:
             self.logger.error(f"Failed to fetch collections: {e}")
             return []
+
+
