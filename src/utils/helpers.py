@@ -72,3 +72,8 @@ def calculate_hash(data):
     sha256_hash = hashlib.sha256(data.encode()).hexdigest()
     logger.debug(f"Calculated hash: {sha256_hash}")
     return sha256_hash
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                

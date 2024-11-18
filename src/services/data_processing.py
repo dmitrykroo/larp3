@@ -136,13 +136,33 @@ class DataProcessing:
 
     def get_cached_aggregated_data(self, key):
         """
-        Retrieve cached aggregated data.
-
-        Args:
-            key (str): Cache key.
-
-        Returns:
-            dict or None: Cached data or None if not found.
-        """
-        self.logger.info(f"Retrieving cached aggregated data with key: {key}")
-        return self.cache.get(key)
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
