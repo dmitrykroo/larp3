@@ -19,5 +19,8 @@ COPY . .
 # Expose port
 EXPOSE 5000
 
-# Run the application
-CMD ["python", "src/app.py"]
+           
+           
+           
+           
+           
