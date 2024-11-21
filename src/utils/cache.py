@@ -91,3 +91,43 @@ class Cache:
             self.logger.info("Flushed all cache keys.")
         except Exception as e:
             self.logger.error(f"Failed to flush cache: {e}")
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
