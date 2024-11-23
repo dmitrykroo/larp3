@@ -83,8 +83,18 @@ class ValuationService:
         report = {
             'user_id': user_id,
             'generated_at': datetime.datetime.utcnow().isoformat(),
-            'valuations': valuations
-        }
-        report_text = self.llm.generate_report_text(report)
-        self.logger.debug(f"Report generated: {report_text}")
-        return report_text
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
