@@ -98,3 +98,13 @@ class ValuationService:
 
 
 
+
+
+
+
+
+
+
+
+
+
