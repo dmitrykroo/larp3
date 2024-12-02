@@ -59,8 +59,18 @@ class OpenSeaAPI:
             response = requests.get(endpoint, headers=headers, timeout=self.timeout)
             response.raise_for_status()
             stats = response.json().get('stats', {})
-            self.logger.debug(f"Collection stats retrieved: {stats}")
-            return stats
-        except requests.RequestException as e:
-            self.logger.error(f"Failed to fetch collection stats from OpenSea: {e}")
-            return {}
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
