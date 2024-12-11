@@ -107,3 +107,8 @@ class DataValidator:
         except ValidationError as e:
             self.logger.error(f"Data validation error: {e.message}")
             return False
+                                                              
+                                                              
+                                                              
+                                                              
+                                                              

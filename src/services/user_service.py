@@ -87,5 +87,13 @@ class UserService:
             user_id (str): The ID of the user.
         """
         self.logger.info(f"Deleting user with ID: {user_id}")
-        self.db_connector.delete_user(user_id)
-        self.logger.info(f"User with ID {user_id} deleted successfully.")
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
