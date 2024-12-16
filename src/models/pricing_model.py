@@ -88,8 +88,23 @@ class PricingModel:
         data = pd.read_csv(data_path)
         X = data.drop('price', axis=1)
         y = data['price']
-
-        self.logger.info("Evaluating the pricing model.")
-        score = self.model.score(X, y)
-        self.logger.info(f"Model evaluation completed with R^2 score: {score}")
-        return score
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
