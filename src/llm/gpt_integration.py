@@ -41,3 +41,8 @@ class GPTIntegration:
             prompt += f"- NFT ID: {valuation['nft_id']}, Valuation: ${valuation['valuation']}, Date: {valuation['timestamp']}\n"
         prompt += "\nProvide insights and recommendations based on the valuations."
         return prompt
+
+
+
+
+
