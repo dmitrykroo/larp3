@@ -82,3 +82,23 @@ def calculate_hash(data):
                                                               
                                                               
                                                               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
