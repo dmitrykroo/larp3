@@ -55,3 +55,13 @@ class PromptEngineering:
         except KeyError as e:
             self.logger.error(f"Missing parameter in prompt formatting: {e}")
             return ""
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
