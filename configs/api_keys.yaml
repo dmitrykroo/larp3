@@ -17,3 +17,5 @@ smtp:
   username: "smtp_user"
   password: "smtp_password"
   from_email: "no-reply@nftadvisor.com"
+
+
