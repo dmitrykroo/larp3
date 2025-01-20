@@ -1,119 +1,95 @@
-import hashlib
-import json
-from utils.logger import setup_logger
+import unittest
+from unittest.mock import MagicMock
+from src.services.user_service import UserService
+from src.models.data_models import User
 
-def generate_unique_id(data):
-    """
-    Generate a unique SHA-256 hash ID based on the input data.
+class TestUserService(unittest.TestCase):
+    def setUp(self):
+        config = {
+            'logging': {
+                'name': 'test_logger',
+                'level': 'DEBUG'
+            },
+            'database': {
+                'host': 'localhost',
+                'port': 5432,
+                'username': 'test_user',
+                'password': 'test_pass',
+                'dbname': 'test_db'
+            },
+            'validation': {
+                'schemas_path': 'configs/schemas/'
+            }
+        }
+        self.user_service = UserService(config)
+        self.user_service.db_connector = MagicMock()
+        self.user_service.validator = MagicMock()
+        self.user_service.validator.validate_user_creation.return_value = True
+        self.user_service.validator.validate_user.return_value = True
 
-    Args:
-        data (dict): Input data to hash.
+    def test_create_user_success(self):
+        user_data = {
+            'username': 'jane_doe',
+            'email': 'jane@example.com'
+        }
+        self.user_service.db_connector.insert_user = MagicMock()
+        user = self.user_service.create_user(user_data)
+        self.assertIsInstance(user, User)
+        self.assertEqual(user.username, 'jane_doe')
+        self.assertEqual(user.email, 'jane@example.com')
+        self.user_service.db_connector.insert_user.assert_called_once()
 
-    Returns:
-        str: Unique hash ID.
-    """
-    logger = setup_logger({})
-    logger.debug(f"Generating unique ID for data: {data}")
-    data_string = json.dumps(data, sort_keys=True)
-    unique_id = hashlib.sha256(data_string.encode()).hexdigest()
-    logger.debug(f"Generated unique ID: {unique_id}")
-    return unique_id
+    def test_create_user_validation_failure(self):
+        user_data = {
+            'username': 'jane_doe'
+            # Missing email
+        }
+        self.user_service.validator.validate_user_creation.return_value = False
+        with self.assertRaises(ValueError):
+            self.user_service.create_user(user_data)
 
-def load_json(file_path):
-    """
-    Load JSON data from a file.
+    def test_get_user_success(self):
+        user_id = 'user123'
+        user_record = {
+            'id': 'user123',
+            'username': 'jane_doe',
+            'email': 'jane@example.com',
+            'registered_at': '2025-01-01T12:00:00Z',
+            'nfts_owned': ['nft123']
+        }
+        self.user_service.db_connector.fetch_user.return_value = user_record
+        user = self.user_service.get_user(user_id)
+        self.assertEqual(user.id, 'user123')
+        self.assertEqual(user.username, 'jane_doe')
+        self.user_service.db_connector.fetch_user.assert_called_with(user_id)
 
-    Args:
-        file_path (str): Path to the JSON file.
+    def test_get_user_not_found(self):
+        user_id = 'user123'
+        self.user_service.db_connector.fetch_user.return_value = None
+        with self.assertRaises(ValueError):
+            self.user_service.get_user(user_id)
 
-    Returns:
-        dict: Parsed JSON data.
-    """
-    logger = setup_logger({})
-    logger.debug(f"Loading JSON data from {file_path}")
-    try:
-        with open(file_path, 'r') as file:
-            data = json.load(file)
-        logger.debug("JSON data loaded successfully.")
-        return data
-    except Exception as e:
-        logger.error(f"Failed to load JSON data: {e}")
-        return {}
+    def test_update_user_nfts(self):
+        user_id = 'user123'
+        nft_id = 'nft456'
+        user = User(
+            id=user_id,
+            username='jane_doe',
+            email='jane@example.com',
+            registered_at='2025-01-01T12:00:00Z',
+            nfts_owned=['nft123']
+        )
+        self.user_service.get_user = MagicMock(return_value=user)
+        self.user_service.db_connector.update_user_nfts = MagicMock()
+        self.user_service.update_user_nfts(user_id, nft_id)
+        self.assertIn(nft_id, user.nfts_owned)
+        self.user_service.db_connector.update_user_nfts.assert_called_with(user_id, user.nfts_owned)
 
-def save_json(data, file_path):
-    """
-    Save data as JSON to a file.
+    def test_delete_user(self):
+        user_id = 'user123'
+        self.user_service.db_connector.delete_user = MagicMock()
+        self.user_service.delete_user(user_id)
+        self.user_service.db_connector.delete_user.assert_called_with(user_id)
 
-    Args:
-        data (dict): Data to save.
-        file_path (str): Path to the output JSON file.
-    """
-    logger = setup_logger({})
-    logger.debug(f"Saving JSON data to {file_path}")
-    try:
-        with open(file_path, 'w') as file:
-            json.dump(data, file, indent=4)
-        logger.debug("JSON data saved successfully.")
-    except Exception as e:
-        logger.error(f"Failed to save JSON data: {e}")
-
-def calculate_hash(data):
-    """
-    Calculate SHA-256 hash of the input data.
-
-    Args:
-        data (str): Input data as string.
-
-    Returns:
-        str: SHA-256 hash.
-    """
-    logger = setup_logger({})
-    logger.debug(f"Calculating SHA-256 hash for data: {data}")
-    sha256_hash = hashlib.sha256(data.encode()).hexdigest()
-    logger.debug(f"Calculated hash: {sha256_hash}")
-    return sha256_hash
-                                                                
-                                                                
-                                                                
-                                                                
-                                                                
-                                                              
-                                                              
-                                                              
-                                                              
-                                                              
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if __name__ == '__main__':
+    unittest.main()
