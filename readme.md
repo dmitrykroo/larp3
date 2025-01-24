@@ -1,10 +1,10 @@
 # AI NFT Analyzer
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/yourusername/ai-nft-analyzer)
-![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/ai-nft-analyzer)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/ai-nft-analyzer)
-![GitHub stars](https://img.shields.io/github/stars/yourusername/ai-nft-analyzer?style=social)
-![GitHub license](https://img.shields.io/github/license/yourusername/ai-nft-analyzer)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/elizaOS/agentmemory)
+![GitHub last commit](https://img.shields.io/github/last-commit/elizaOS/agentmemory)
+![GitHub issues](https://img.shields.io/github/issues/elizaOS/agentmemory)
+![GitHub stars](https://img.shields.io/github/stars/elizaOS/agentmemory)
+![GitHub license](https://img.shields.io/github/license/elizaOS/agentmemory)
 
 AI NFT Analyzer is a powerful AI-driven tool designed to analyze and assess NFT collections based on market trends, rarity, utility, and other key factors. With cutting-edge machine learning algorithms, it helps users identify high-value NFTs, avoid scams, and make informed decisions in the NFT space.
 
