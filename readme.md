@@ -1,4 +1,4 @@
-# AI NFT Analyzer
+# SchizoRarity
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/elizaOS/agentmemory)
 ![GitHub last commit](https://img.shields.io/github/last-commit/elizaOS/agentmemory)
